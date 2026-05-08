@@ -1,12 +1,15 @@
-Program read
-  implicit none
-  real, dimension(13880,4)::K_data
-  integer:: i
+Program Rain
+  IMPLICIT NONE
+  REAL, DIMENSION(13880)::rr
+  INTEGER, DIMENSION(13880)::Yr
+  INTEGER, DIMENSION(13880)::Mn
+  INTEGER,DIMENSION(13880)::Dy
+  INTEGER:: i
 
-  open(15,file='Kumasi_1980_2017_dRR.txt',status='old',action='read')
-  Do i= 1,13880
-     Read(15,*) K_data(i,:)
-     print*,K_data(i,:)
-  end do
+  OPEN(10,file='Kumasi_1980_2017_dRR.txt',status='old',action='read')
   
-End Program read
+  DO i=1,13880
+     READ(10,*) Yr(i), Mn(i),Dy(i),rr(i)
+     PRINT*, Yr(i), Mn(i), Dy(i),rr(i)
+  END DO
+ End Program Rain
